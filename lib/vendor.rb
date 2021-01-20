@@ -17,4 +17,10 @@ class Vendor
       @inventory[item]
     end
   end
+
+  def potential_revenue
+    @inventory.map do |key, value|
+      key.price * value
+    end.sum
+  end
 end
