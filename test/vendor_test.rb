@@ -38,4 +38,16 @@ class TestVendor < MiniTest::Test
     @vendor.stock(@item2, 20)
     assert_equal 32.5, @vendor.potential_revenue
   end
+
+  def test_list_inventory_item_names
+    @vendor.stock(@item1, 30)
+    @vendor.stock(@item2, 20)
+    assert_equal ['Peach', 'Tomato'], @vendor.list_inventory_item_names
+  end
+
+  def test_inventory_items_without_price
+    @vendor.stock(@item1, 30)
+    @vendor.stock(@item2, 20)
+    assert_equal [@item1, @item2], @vendor.inventory_items_without_price
+  end
 end

@@ -23,4 +23,14 @@ class Vendor
       key.price * value
     end.sum
   end
+
+  def list_inventory_item_names
+    @inventory.map do |key, value|
+      key.name
+    end.sort
+  end
+
+  def inventory_items_without_price
+    @inventory.keys
+  end
 end
